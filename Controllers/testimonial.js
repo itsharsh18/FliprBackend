@@ -3,11 +3,11 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 export const TestiMonialRegister = (async(req,res)=>{
   try {
-     const {  Name , Desigation,Description} = req.body; 
-     console.log(req.Name);
-     console.log(req.Description);
-     console.log(req.Desigation);
-     if( !Name || ! Desigation || ! Description) return res.status(401).send({message : "Plz provide al fields"})
+     const {  name , Designation,Description} = req.body; 
+     console.log(name);
+     console.log(Description);
+     console.log(Designation);
+     if( !name || ! Designation || ! Description) return res.status(401).send({message : "Plz provide al fields"})
           
             const ClientImage = req.files?.avatar[0].path;
   
@@ -18,8 +18,8 @@ export const TestiMonialRegister = (async(req,res)=>{
   
           const prodcuts = await Client.create({
               image : avatar.url, 
-              Name , 
-              Desigation , 
+              name , 
+              Designation , 
               Description
   
           })
@@ -38,7 +38,7 @@ export const TestiMonialRegister = (async(req,res)=>{
 
 
 export const GetAlltestimonials = (async(req,res)=>{
-    const theTestimonialsData = await Client.find({}).select('-_idx');
+    const theTestimonialsData = await Client.find({});
     return res.status(201).json({
         message: "Hers all ur user" , 
         theTestimonialsData

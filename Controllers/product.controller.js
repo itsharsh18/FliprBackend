@@ -44,8 +44,8 @@ export const ProjectController = (async(req , res)=>{
 
 
 
-export const GetAllProjjectData = (async(req,res)=>{
+export const GetAllProjjectData = async(req,res)=>{
         const theProjectData = await Project.find({});
         
         return res.status(201).json({message : "HEres ur data ," , theProjectData})
-})
+}

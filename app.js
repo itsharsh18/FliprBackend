@@ -8,7 +8,7 @@ import { connectDB } from './Db/index.js';
 import userRoute from "../Backend/Routes/user.route.js"
 import TestimonialRoute from "../Backend/Routes/testimonial.route.js"
 import prjectImage from "../Backend/Routes/ProductRoute.js"
-
+import NewsLetter  from "../Backend/Routes/newsLetter.js"
 const app = express();  
 
 connectDB()
@@ -32,6 +32,9 @@ app.use("/api/v1" , TestimonialRoute)
 // Product route handlers 
  app.use("/api/v1/ProductController" ,prjectImage )
  
+ // route for the newsLetter
+
+ app.use("/api/v1/newsLetter" ,NewsLetter )
  
  app.listen(3000, () => {
     console.log('Server is running on port 3000');
